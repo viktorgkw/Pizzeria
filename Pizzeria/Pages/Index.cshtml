@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 text-capitalize fw-bold mb-5 mt-5">Welcome to Pizzaria Bulgaria!</h1>
+    @*We use ~ to access the wwwroot folder*@
+    <img class="rounded-3" src="~/images/PizzaTime.jpg" />
+    <br />
+
+    <a class="btn btn-primary mt-3" asp-area="" asp-page="/Pizza">I WANT PIZZA</a>
+</div>

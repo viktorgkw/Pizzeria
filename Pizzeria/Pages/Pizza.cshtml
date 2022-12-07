@@ -1,0 +1,43 @@
+﻿@page
+@model Pizzeria.Pages.PizzaModel
+
+<div class="text-center">
+    <h1 class="display-4 text-capitalize fw-bold mb-5 mt-5 text-info">Choose one or build it yourself!</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 mt-5 bg-info text-light">
+                <div class="w-100 row">
+                    <div class="col-4">
+                        <img src="~/images/Pizzas/Create.png" class="w-100" />
+                    </div>
+                    <div class="col-8 align-items-center">
+                        <div class="align-middle">
+                            <h3 style="text-align: left;">
+                                Create your own pizza!
+                            </h3>
+                            <p style="text-align: left;">
+                                Make your own pizza with our PizzaMaker!
+                            </p>
+                            <a class="btn btn-primary" style="float: left;" asp-area="" asp-page="/Forms/CustomPizza">
+                                Try Now!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @foreach (var pizza in Model.pizzaDb)
+            {
+                string imagePath = "~/images/Pizzas/" + pizza.Name + ".png";
+                <div class="col-4 mb-5">
+                    <img src="@imagePath" class="w-100" asp-append-version="true" />
+                    <a class="btn btn-primary mt-1" asp-area="" asp-page="Checkout/Checkout"
+                        asp-route-ImageTitle="@pizza.ImageTitle"
+                        asp-route-PizzaPrice="@pizza.BasePrice"
+                        asp-route-PizzaName="@pizza.Name">Buy</a>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>
